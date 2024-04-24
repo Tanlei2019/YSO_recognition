@@ -46,30 +46,30 @@ class LSTM_Model(torch.nn.Module):
         self.conv1 = torch.nn.Sequential(
             torch.nn.Conv2d(1, 20, kernel_size=(1, 2), stride=1),
             torch.nn.BatchNorm2d(20),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=(1, 1), kernel_size=(1, 2)))
         self.conv2 = torch.nn.Sequential(
             torch.nn.Conv2d(20, 40, kernel_size=(1, 2), stride=1),
             torch.nn.BatchNorm2d(40),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=(1, 2), kernel_size=(1, 2)))
         self.conv3 = torch.nn.Sequential(
             torch.nn.Conv2d(40, 20, kernel_size=(1, 3), stride=1),
             torch.nn.BatchNorm2d(20),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=(1, 1), kernel_size=(1, 2)))
         self.conv4 = torch.nn.Sequential(
             torch.nn.Conv2d(20, 1, kernel_size=(1, 3), stride=1),
             torch.nn.BatchNorm2d(1),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=(1, 2), kernel_size=(1, 2)))
         self.conv5 = torch.nn.Sequential(
             torch.nn.Conv2d(1, 20, kernel_size=(1, 2), stride=1),
             torch.nn.BatchNorm2d(20),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=(1, 2), kernel_size=(1, 2)))
         self.dense = torch.nn.Sequential(
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.Linear(148*9, 1024),
             torch.nn.Linear(1024, num_class),
             torch.nn.Softmax()

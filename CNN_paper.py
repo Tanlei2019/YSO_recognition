@@ -41,40 +41,40 @@ class CNN_Model(torch.nn.Module):
         self.conv1 = torch.nn.Sequential(
             torch.nn.Conv2d(1, 20, kernel_size=(1, 2), stride=1),
             torch.nn.BatchNorm2d(20),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=1, kernel_size=(1, 2)))
         self.conv2 = torch.nn.Sequential(
             torch.nn.Conv2d(20, 40, kernel_size=(1, 3), stride=1),
             torch.nn.BatchNorm2d(40),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=2, kernel_size=(1, 2)))
         self.conv3 = torch.nn.Sequential(
             torch.nn.Conv2d(40, 60, kernel_size=(1, 2), stride=1),
             torch.nn.BatchNorm2d(60),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=1, kernel_size=(1, 2)))
         self.conv4 = torch.nn.Sequential(
             torch.nn.Conv2d(60, 80, kernel_size=(1, 3), stride=1),
             torch.nn.BatchNorm2d(80),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=2, kernel_size=(1, 2)))
         self.conv5 = torch.nn.Sequential(
             torch.nn.Conv2d(80, 100, kernel_size=(1, 2), stride=1),
             torch.nn.BatchNorm2d(100),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=1, kernel_size=(1, 2)))
         self.conv6 = torch.nn.Sequential(
             torch.nn.Conv2d(100, 120, kernel_size=(1, 3), stride=1),
             torch.nn.BatchNorm2d(120),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=2, kernel_size=(1, 2)))
         self.conv7 = torch.nn.Sequential(
             torch.nn.Conv2d(128, 128, kernel_size=3, stride=1, padding=2),
             torch.nn.BatchNorm2d(128),
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.MaxPool2d(stride=2, kernel_size=2))
         self.dense1 = torch.nn.Sequential(
-            torch.nn.ReLU(),
+            torch.nn.LeakyReLU(),
             torch.nn.Linear(120 * 1 * 2, 1024),
         )
         self.dense2 = torch.nn.Sequential(
